@@ -1,0 +1,26 @@
+From ab0586f9fb05f15f0d7aadee2cb786352cf9b9c4 Mon Sep 17 00:00:00 2001
+From: Frederik Sdun <frederik_sdun@mentor.com>
+Date: Mon, 25 Jan 2016 13:45:08 +0100
+Subject: [PATCH] udev: part-id: handle i2c subsystem
+
+---
+ src/udev/udev-builtin-path_id.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/udev/udev-builtin-path_id.c b/src/udev/udev-builtin-path_id.c
+index f529ffc..b332fb7 100644
+--- a/src/udev/udev-builtin-path_id.c
++++ b/src/udev/udev-builtin-path_id.c
+@@ -659,6 +659,9 @@ static int builtin_path_id(struct udev_device *dev, int argc, char *argv[], bool
+                         parent = skip_subsystem(parent, "scm");
+                         supported_transport = true;
+                         supported_parent = true;
++                } else if (streq(subsys, "i2c")) {
++                        path_prepend(&path, "i2c-%s",udev_device_get_sysname(parent));
++                        parent = skip_subsystem(parent, "i2c");
+                 }
+ 
+                 if (parent)
+-- 
+1.9.1
+

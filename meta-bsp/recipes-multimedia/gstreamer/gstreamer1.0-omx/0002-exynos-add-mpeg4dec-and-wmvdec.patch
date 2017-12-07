@@ -1,0 +1,39 @@
+From 62904eabad6b6e70b16f261d9a1fe7ecbe39acbc Mon Sep 17 00:00:00 2001
+From: Taehwan Kim <t_h.kim@samsung.com>
+Date: Thu, 22 Sep 2016 17:01:12 +0900
+Subject: [PATCH] exynos: add mpeg4dec and wmvdec
+
+Signed-off-by: Taehwan Kim <t_h.kim@samsung.com>
+---
+ config/exynos/gstomx.conf | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/config/exynos/gstomx.conf b/config/exynos/gstomx.conf
+index 6555dc8..5edd285 100644
+--- a/config/exynos/gstomx.conf
++++ b/config/exynos/gstomx.conf
+@@ -6,3 +6,21 @@ rank=257
+ in-port-index=0
+ out-port-index=1
+ hacks=no-disable-outport
++
++[omxmpeg4videodec]
++type-name=GstOMXMPEG4VideoDec
++core-name=/usr/lib/libExynosOMX_Core.so
++component-name=OMX.Exynos.MPEG4.Decoder
++rank=257
++in-port-index=0
++out-port-index=1
++hacks=no-disable-outport
++
++[omxwmvdec]
++type-name=GstOMXWMVDec
++core-name=/usr/lib/libExynosOMX_Core.so
++component-name=OMX.Exynos.WMV.Decoder
++rank=257
++in-port-index=0
++out-port-index=1
++hacks=no-disable-outport
+-- 
+1.9.1
+

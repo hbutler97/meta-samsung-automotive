@@ -1,0 +1,30 @@
+From 3b6922c867ebd8ec655aa696cd2f4b46a0e76f51 Mon Sep 17 00:00:00 2001
+From: Isaac Hong <isaac.hong@samsung.com>
+Date: Sat, 24 Sep 2016 14:02:21 +0900
+Subject: [PATCH 2/2] [HACK] change refresh value to 60000 (60Hz)
+
+If drm driver will be completed, this hack must be removed.
+
+Change-Id: Ia87bb22b3bf8efeb39b6ba46c5ae348d8339a1dd
+Signed-off-by: Isaac Hong <isaac.hong@samsung.com>
+---
+ src/compositor-drm.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/compositor-drm.c b/src/compositor-drm.c
+index 6777bf8..9c5e58e 100644
+--- a/src/compositor-drm.c
++++ b/src/compositor-drm.c
+@@ -1635,7 +1635,8 @@ drm_output_add_mode(struct drm_output *output, const drmModeModeInfo *info)
+ 	if (info->vscan > 1)
+ 	    refresh /= info->vscan;
+ 
+-	mode->base.refresh = refresh;
++/*	mode->base.refresh = refresh; */
++	mode->base.refresh = 60000;
+ 	mode->mode_info = *info;
+ 
+ 	if (info->type & DRM_MODE_TYPE_PREFERRED)
+-- 
+1.9.1
+

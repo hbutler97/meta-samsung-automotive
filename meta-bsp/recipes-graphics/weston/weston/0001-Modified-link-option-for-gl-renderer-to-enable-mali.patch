@@ -1,0 +1,27 @@
+From 417327e64180a20bc6a752be46b872434af0820f Mon Sep 17 00:00:00 2001
+From: Isaac Hong <isaac.hong@samsung.com>
+Date: Sat, 24 Sep 2016 14:01:01 +0900
+Subject: [PATCH 1/2] Modified link option for gl-renderer to enable mali
+
+Change-Id: Id1b2447aa71c58ae5bd8bdd9c40efbcd07dd0b96
+Signed-off-by: Isaac Hong <isaac.hong@samsung.com>
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 62719c9..8ae5955 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -201,7 +201,7 @@ westoninclude_HEADERS =				\
+ if ENABLE_EGL
+ module_LTLIBRARIES += gl-renderer.la
+ gl_renderer_la_LDFLAGS = -module -avoid-version
+-gl_renderer_la_LIBADD = $(COMPOSITOR_LIBS) $(EGL_LIBS)
++gl_renderer_la_LIBADD = $(COMPOSITOR_LIBS) $(DRM_COMPOSITOR_GBM_LIBS)
+ gl_renderer_la_CFLAGS =				\
+ 	$(COMPOSITOR_CFLAGS)			\
+ 	$(EGL_CFLAGS)				\
+-- 
+1.9.1
+

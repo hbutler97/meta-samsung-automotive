@@ -1,0 +1,16 @@
+[Unit]
+Description=Demo videos
+After=weston.service
+
+
+[Service]
+Environment="XDG_RUNTIME_DIR=/run/user/root"
+#ExecStartPre=/bin/sh -c '/bin/echo 1560000 > /sys/power/cpufreq_min_limit'
+ExecStart=/bin/sh -c 'gst-launch-1.0 filesrc location="/usr/share/exynos-video-demo/r8.mp4" ! qtdemux ! h264parse ! omxh264dec ! glimagesink'
+Type=simple
+#Restart=always
+
+
+[Install]
+WantedBy=graphical.target
+

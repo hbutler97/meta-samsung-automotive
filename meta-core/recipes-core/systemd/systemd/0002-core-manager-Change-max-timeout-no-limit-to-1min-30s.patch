@@ -1,0 +1,26 @@
+From 96dee11ea5f527b9fc63a0265d8b30f9de581e01 Mon Sep 17 00:00:00 2001
+From: Changki Kim <changki.kim@samsung.com>
+Date: Wed, 9 Nov 2016 13:41:44 +0900
+Subject: [PATCH] core: manager: Change max timeout no limit to 1min 30s
+
+Signed-off-by: Changki Kim <changki.kim@samsung.com>
+---
+ src/core/manager.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/core/manager.c b/src/core/manager.c
+index 52174ea..3c3be34 100644
+--- a/src/core/manager.c
++++ b/src/core/manager.c
+@@ -182,7 +182,7 @@ static void manager_print_jobs_in_progress(Manager *m) {
+         unsigned counter = 0, print_nr;
+         char cylon[6 + CYLON_BUFFER_EXTRA + 1];
+         unsigned cylon_pos;
+-        char time[FORMAT_TIMESPAN_MAX], limit[FORMAT_TIMESPAN_MAX] = "no limit";
++        char time[FORMAT_TIMESPAN_MAX], limit[FORMAT_TIMESPAN_MAX] = "1min 30s";
+         uint64_t x;
+ 
+         assert(m);
+-- 
+2.1.4
+

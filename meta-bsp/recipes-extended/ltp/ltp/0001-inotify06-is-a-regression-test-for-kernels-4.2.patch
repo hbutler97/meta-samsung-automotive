@@ -1,0 +1,32 @@
+From 16734da61c182e31c35a5c51d662d45d330e9a2f Mon Sep 17 00:00:00 2001
+From: Hyuk Lee <hyuk1.lee@samsung.com>
+Date: Mon, 3 Oct 2016 11:27:27 +0900
+Subject: [PATCH] inotify06 is a regression test for kernels >= 4.2. Add a
+ condition so that only >= 4.2 kernels can run the test because previous
+ kernel are likely to crash because of the test.
+
+Signed-off-by: Cedric Hnyda <chnyda@suse.com>
+Signed-off-by: Hyuk Lee <hyuk1.lee@samsung.com>
+---
+ testcases/kernel/syscalls/inotify/inotify06.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/testcases/kernel/syscalls/inotify/inotify06.c b/testcases/kernel/syscalls/inotify/inotify06.c
+index 71f7596..090729d 100644
+--- a/testcases/kernel/syscalls/inotify/inotify06.c
++++ b/testcases/kernel/syscalls/inotify/inotify06.c
+@@ -69,6 +69,11 @@ static void setup(void)
+ {
+ 	int i;
+ 
++	if ((tst_kvercmp(4, 2, 0)) < 0) {
++		tst_brkm(TCONF, NULL,
++			"This test can only run on kernels that are 4.2. and higher");
++	}
++
+ 	tst_sig(FORK, DEF_HANDLER, cleanup);
+ 
+ 	TEST_PAUSE;
+-- 
+2.7.4
+

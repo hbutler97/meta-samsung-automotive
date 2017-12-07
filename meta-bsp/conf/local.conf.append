@@ -1,0 +1,10 @@
+
+RELEASE_IMAGE_automotive-samsung-e8 = "core-image-poc"
+
+
+###DL_LICENSE_EXCLUDE_pn-gl-compositor = ''
+###DL_LICENSE_EXCLUDE_pn-pci-demo = ''
+##DL_LICENSE_EXCLUDE_pn-xswayland-clients = ''
+##DL_LICENSE_EXCLUDE_append = " OSGPL"
+##LICENSE_FLAGS_WHITELIST += "commercial_gstreamer1.0-omx commercial_libomxil commercial_gstreamer1.0-libav"
+#WHITELIST_GPL-3.0_append = " glmark2"

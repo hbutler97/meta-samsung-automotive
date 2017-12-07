@@ -1,0 +1,4 @@
+define KFEATURE_DESCRIPTION "Enable /proc/config.gz as module"
+define KFEATURE_COMPATIBILITY board
+
+kconf hardware ikconfig.cfg
