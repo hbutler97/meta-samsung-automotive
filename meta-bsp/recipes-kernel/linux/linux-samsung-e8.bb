@@ -52,7 +52,12 @@ rm -f ${B}/.config ${S}/.config
 
 
 do_tar_files() {
-cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
+if [ ! -f ${DL_DIR}/linux-samsung-e8.tar.gz ]
+then
+  cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
+fi
+tar xvf ${DL_DIR}/linux-samsung-e8.tar.gz -C ${STAGING_KERNEL_DIR}
+mv ${STAGING_KERNEL_DIR}/linux-samsung-e8/* ${STAGING_KERNEL_DIR}
 }
 
 addtask tar_files after do_unpack before do_patch
@@ -67,3 +72,4 @@ def get_xen(d):
     else:
         return ""
 DEPENDS += " ${@get_xen(d)}"
+DEPENDS_aarch64 += "libgcc"

@@ -17,8 +17,11 @@ do_configure() {
 }
 
 do_tar_files() {
-cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
-tar xvf ${DL_DIR}/linux-samsung-e8.tar.gz -C ${WORKDIR}
+  if [ ! -f ${DL_DIR}/linux-samsung-e8.tar.gz ]
+  then
+    cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
+  fi
+  tar xvf ${DL_DIR}/linux-samsung-e8.tar.gz -C ${WORKDIR}	
 }
 
 addtask tar_files after do_unpack before do_patch
