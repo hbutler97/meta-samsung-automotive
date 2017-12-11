@@ -1,4 +1,6 @@
-SRC_URI = "file://${DL_DIR}/linux-samsung-e8.tar.gz"
+#SRC_URI = "file://${DL_DIR}/linux-samsung-e8.tar.gz"
+
+SRC_URI = "git://github.com/hbutler97/linux_samsung.git;rev=403918a500424cc8ac763b9ef5844e0ccd5f9221"
 S = "${WORKDIR}/${PN}"
 B = "${S}"
 

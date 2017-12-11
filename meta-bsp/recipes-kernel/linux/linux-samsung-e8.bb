@@ -44,10 +44,20 @@ BOOT_PARTITION = "/dev/mmcblk0p2"
 EXTRA_OEMAKE_append = " V=1"
 KERNEL_CC_append = " --sysroot=${STAGING_DIR_TARGET}"
 
+
 do_configure_prepend() {
 export KBUILD_SRC=${S}
 rm -f ${B}/.config ${S}/.config
 }
+
+
+do_tar_files() {
+cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
+}
+
+addtask tar_files after do_unpack before do_patch
+
+
 
 
 # Select Xen for virtualization
