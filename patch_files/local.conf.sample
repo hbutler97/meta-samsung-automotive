@@ -133,9 +133,12 @@ IMAGE_INSTALL_append += " \
 # specific kernel/uboot version to build
 # to activte with setting SEL_SPECIFIC_REV_FLAG = "1", not to activate with ="0"
 SEL_SPECIFIC_REV_FLAG = "1"
-SEL_KERNEL_SPECIFIC_REV = "Aura-KernelVersion-6B10R1"
+# This value must match the value in the linux-samsung-e8.inc/bb files
+SEL_KERNEL_SPECIFIC_REV = "403918a500424cc8ac763b9ef5844e0ccd5f9221"
 SEL_KERNEL_SPECIFIC_DEFCONFIG ="sadk8890_defconfig"
 SEL_KERNEL_SPECIFIC_DT="exynos8890-sadk8890.dtb"
 SEL_UBOOT_SPECIFIC_REV = "Aura-UbootVersion-6B10R1"
 SEL_UBOOT_SPECIFIC_BRANCH ="automotive-exynos-dev"
 
+#fix a qemu link error
+BUILD_LDFLAGS_prepend_pn-qemu-native = "-Wl,-rpath-link,/lib/x86_64-linux-gnu "
