@@ -61,7 +61,6 @@ IMAGE_INSTALL_append += " \
     test-fw \
     common-api-test \
     wayland-ivi-extension-test \
-    audiomanager-test \
     persistence-administrator-test \
     persistence-client-library-test \
     persistence-common-object-test \
