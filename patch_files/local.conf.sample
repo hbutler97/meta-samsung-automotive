@@ -142,3 +142,6 @@ SEL_UBOOT_SPECIFIC_BRANCH ="automotive-exynos-dev"
 
 #fix a qemu link error
 BUILD_LDFLAGS_prepend_pn-qemu-native = "-Wl,-rpath-link,/lib/x86_64-linux-gnu "
+
+PREFERRED_VERSION_audiomanager ?= "7.0"
+PREFERRED_VERSION_audiomanagerplugins ?= "7.0"
