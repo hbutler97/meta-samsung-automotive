@@ -6,7 +6,7 @@ RPROVIDES_${PN}-dbg += "linux-libc-headers-dbg"
 
 #SRC_URI = "file://${DL_DIR}/linux-samsung-e8.tar.gz"
 
-SRC_URI = "git://github.com/hbutler97/linux_samsung.git;rev=403918a500424cc8ac763b9ef5844e0ccd5f9221"
+SRC_URI = "git://github.com/SSIC-SM/linux-samsung-e8.git"
 
 
 S = "${WORKDIR}/linux-samsung-e8"
@@ -16,12 +16,4 @@ do_configure() {
 	oe_runmake_call -C ${S} O=${B} ${KDEFCONFIG}
 }
 
-do_tar_files() {
-  if [ ! -f ${DL_DIR}/linux-samsung-e8.tar.gz ]
-  then
-    cat ${WORKDIR}/git/linux-samsung-e8* > ${DL_DIR}/linux-samsung-e8.tar.gz
-  fi
-  tar xvf ${DL_DIR}/linux-samsung-e8.tar.gz -C ${WORKDIR}	
-}
 
-addtask tar_files after do_unpack before do_patch
