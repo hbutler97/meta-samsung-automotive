@@ -6,8 +6,8 @@ RPROVIDES_${PN}-dbg += "linux-libc-headers-dbg"
 
 #SRC_URI = "file://${DL_DIR}/linux-samsung-e8.tar.gz"
 
-SRC_URI = "http://github.com/SSIC-SM/linux-samsung-e8.git;branch=master"
-SRCREV = "${AUTOREV}"
+SRC_URI = "http://github.com/SSIC-SM/linux-samsung-e8.git;rev=d859009a7ff589182ee007d1e2f43e114dacb336"
+#SRCREV = "${AUTOREV}"
 
 
 S = "${WORKDIR}/linux-samsung-e8"

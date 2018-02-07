@@ -2,9 +2,9 @@
 
 #SRC_URI = "git://github.com/hbutler97/linux_samsung.git;rev=403918a500424cc8ac763b9ef5844e0ccd5f9221"
 
-SRC_URI = "http://github.com/SSIC-SM/linux-samsung-e8.git;branch=master"
-SRCREV = "${AUTOREV}"
-
+SRC_URI = "http://github.com/SSIC-SM/linux-samsung-e8.git;rev=d859009a7ff589182ee007d1e2f43e114dacb336"
+#SRCREV = "${AUTOREV}"
+#d859009a7ff589182ee007d1e2f43e114dacb336
 S = "${WORKDIR}/${PN}"
 B = "${S}"
 
